@@ -18,7 +18,7 @@ setup(
   author_email='Lucas Ribeiro',
   license='MIT', 
   classifiers=classifiers,
-  keywords='calculator', 
+  keywords='Whatsapp API', 
   packages=find_packages(),
   install_requires=[''] 
 )
