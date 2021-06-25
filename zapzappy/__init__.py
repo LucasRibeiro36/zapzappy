@@ -21,8 +21,8 @@ class Whatsapp_api:
         sleep(3.0)
     def take_screenshot(self):
             try:
-                ele = self.driver.find_element(By.CSS_SELECTOR, '._3jid7 > canvas:nth-child(3)')
-                ele.screenshot('./qrcode.png')
+                qr_code = self.driver.find_element(By.CSS_SELECTOR, '._3jid7 > canvas:nth-child(3)')
+                qr_code.screenshot('./qrcode.png')
             except:
                 pass
             try:
@@ -30,7 +30,7 @@ class Whatsapp_api:
                 return True
             except:
                 return False
-    def send(self,number,message):
+    def send_Message(self,number,message):
         try:
             user = self.driver.find_element_by_xpath(f"//span[@title='{number}']")
             user.click()
