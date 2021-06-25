@@ -11,7 +11,7 @@ classifiers = [
 setup(
   name='ZAPZAPPY',
   version='0.0.1',
-  description='Simple whatsapp web api in python',
+  description='zapzappy is a simple Whatsapp API',
   long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
   url='',  
   author='Lucas Ribeiro',
