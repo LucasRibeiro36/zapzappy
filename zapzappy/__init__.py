@@ -14,7 +14,6 @@ class Whatsapp_api:
         options.add_argument("--user-data-dir=data_chrome")
         options.add_argument("--hide-scrollbars")
         options.add_argument("--disable-gpu")
-        #options.add_extension('extensions/extension_1_7_0_0.crx')
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
         options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36')
         self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
@@ -59,8 +58,6 @@ class Whatsapp_api:
                 else:
                     chat.send_keys(message)
                     chat.send_keys(Keys.ENTER)
-                user = self.driver.find_element_by_xpath(f"//span[@title='i']")
-                user.click()
                 return True          
         except:
             return False
@@ -82,23 +79,3 @@ class Whatsapp_api:
 
 
 
-"""def get_new_Messagens():
-        chats = []
-        messages = []
-        for number in range(30):
-            try:
-                if int(driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._1SjZ2 > div._15smv > span:nth-child(1) > div > span').text) >= 1: 
-                    chats.append(driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._2pkLM > div._3Dr46 > span').text)
-                    messages.append(driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._1SjZ2 > div._2vfYK > span > span._35k-1._1adfa._3-8er').text)
-            except:
-                pass
-        return chats,messages
-
-teste = get_new_Messagens()
-for i in range(0,1):
-    for j in range(0,30):
-        try:
-            print(teste[i][j])
-            print(teste[i+1][j])
-        except:
-            pass"""
