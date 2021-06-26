@@ -6,12 +6,6 @@ while not bot.take_screenshot():
 time.sleep(5)
 while True:
     chats = bot.get_new_Messages()
-    for i in range(0,1):
-        for j in range(0,30):
-            try:
-                chat = chats[i][j]
-                msg = chats[i+1][j]
-                bot.send_Message(chat,f"{chat}:{msg}")
-            except:
-                pass
+    for chat in chats:
+        bot.send_Message(chat['msg']['id'], chat['msg']['text'])
 

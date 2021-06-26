@@ -1,3 +1,5 @@
+import re
+from typing import Text
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -63,18 +65,19 @@ class Whatsapp_api:
         except:
             return False
     def get_new_Messages(self):
-        chats = []
-        messages = []
+        msg = []
         for number in range(30):
             try:
                 if int(self.driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._1SjZ2 > div._15smv > span:nth-child(1) > div > span').text) >= 1: 
-                    chats.append(self.driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._2pkLM > div._3Dr46 > span').text)
-                    messages.append(self.driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._1SjZ2 > div._2vfYK > span > span._35k-1._1adfa._3-8er').text)
+                    msg+= [{'msg': {'id': self.driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._2pkLM > div._3Dr46 > span').text,
+                    'text': self.driver.find_element_by_css_selector(f'#pane-side > div:nth-child(1) > div > div > div:nth-child({number}) > div > div > div.TbtXF > div._1SjZ2 > div._2vfYK > span > span._35k-1._1adfa._3-8er').text}}]
             except:
                 pass
-        return chats,messages
+        return msg
+
 
         
+
     def quit(self):
         self.driver.quit()
 
