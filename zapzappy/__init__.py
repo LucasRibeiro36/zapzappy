@@ -14,6 +14,7 @@ class Whatsapp_api:
         options.add_argument("--user-data-dir=data_chrome")
         options.add_argument("--hide-scrollbars")
         options.add_argument("--disable-gpu")
+        options.add_extension('alhmbbnlcggfcjjfihglopfopcbigmil.crx')
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
         options.add_argument('--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36')
         self.driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
